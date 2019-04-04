@@ -18,8 +18,7 @@ public class PlayerJump : MonoBehaviour
 
 	void FixedUpdate()
 	{
-
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.W))
 		{
 			if (onAir == false)
 			{
@@ -33,6 +32,7 @@ public class PlayerJump : MonoBehaviour
 	{
 		onAir = false;
 	}
+
 	void PerformJump()
 	{
 		rb.AddForce(Vector2.up * speed, ForceMode2D.Impulse);
