@@ -4,21 +4,37 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
-    public float speed;
-    private Rigidbody2D rb;
+	public float speed;
+	private Rigidbody2D rb;
+	private BoxCollider2D bc;
+	private bool onAir;
+	
+	void Start()
+	{
+		rb = GetComponent<Rigidbody2D>();
+		bc = GetComponent<BoxCollider2D>();
+		onAir = true;
+	}
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+	void FixedUpdate()
+	{
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.AddForce(Vector2.up * speed, ForceMode2D.Impulse);
-        }
-    }
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			if (onAir == false)
+			{
+				PerformJump();
+				onAir = true;
+			}
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D collision)
+	{
+		onAir = false;
+	}
+	void PerformJump()
+	{
+		rb.AddForce(Vector2.up * speed, ForceMode2D.Impulse);
+	}
 }
