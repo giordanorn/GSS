@@ -11,9 +11,8 @@ public class PlayerMovement : MonoBehaviour
 	{
 		
 	}
-
-	// Update is called once per frame
-	void Update()
+	
+	void FixedUpdate()
 	{
 		float horizontalMove = 0.0f;
 		
