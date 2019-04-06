@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Shooter : MonoBehaviour
+public class Firepoint : MonoBehaviour
 {
     public GameObject bullet;
     public int bulletMax;
@@ -26,7 +24,6 @@ public class Shooter : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             GameObject bulletInstance = Instantiate(bullet, transform.position, transform.rotation);
-            bulletInstance.AddComponent<Bullet>();
             bulletCount++;
         }
     }
