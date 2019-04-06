@@ -4,27 +4,40 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
 	public float speed;
-	// Start is called before the first frame update
-	void Start()
+
+    public bool IsMoving { get; private set; }
+    public bool IsFacingLeft { get; private set; }
+
+    void FixedUpdate()
 	{
-		
-	}
-	
-	void FixedUpdate()
-	{
-		float horizontalMove = 0.0f;
+		int horizontalMove = 0;
 		
 		if (Input.GetKey(KeyCode.D))
 		{
 			horizontalMove += 1;
 		}
+
 		if (Input.GetKey(KeyCode.A))
 		{
 			horizontalMove += -1;
 		}
 
-		transform.position += new Vector3(horizontalMove * speed, 0, 0) * Time.deltaTime;
-	}
+        IsMoving = horizontalMove != 0;
+        IsFacingLeft = horizontalMove < 0;
+
+        if (IsMoving)
+        {
+            if (IsFacingLeft)
+            {
+                transform.right = Vector3.left; 
+            }
+            else
+            {
+                transform.right = Vector3.right;
+            }
+
+            transform.Translate(speed * Vector3.right * Time.deltaTime);
+        }
+    }
 }

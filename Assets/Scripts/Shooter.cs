@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    public GameObject Bullet;
-    public int BulletMax;
-    public float TimeReset;
+    public GameObject bullet;
+    public int bulletMax;
+    public float timeReset;
 
     private int bulletCount = 0;
     private float timeCount = 0.0f;
@@ -14,10 +14,10 @@ public class Shooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (bulletCount >= BulletMax)
+        if (bulletCount >= bulletMax)
         {
             timeCount += Time.deltaTime;
-            if (timeCount >= TimeReset)
+            if (timeCount >= timeReset)
             {
                 timeCount = 0.0f;
                 bulletCount = 0;
@@ -25,8 +25,8 @@ public class Shooter : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject bullet = Instantiate(Bullet, transform.position, transform.rotation);
-            bullet.AddComponent<Bullet>();
+            GameObject bulletInstance = Instantiate(bullet, transform.position, transform.rotation);
+            bulletInstance.AddComponent<Bullet>();
             bulletCount++;
         }
     }
