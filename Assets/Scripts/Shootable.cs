@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Shootable : MonoBehaviour
 {
     public float damage = 5.0f;
-
+    public float speed = 5.0f;
+    
     void FixedUpdate()
     {
-        float speed = 5.0f;
         transform.Translate(speed * Vector3.right * Time.fixedDeltaTime);
     }
 
