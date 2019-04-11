@@ -1,0 +1,62 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+
+\title{Just Keep Moving: Especificação}
+\author{Giordano Rodrigues \and João Pedro Holanda}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Introdução}
+
+Esse documento descreve o jogo \emph{Just Keep Moving}, um \emph{side-scroller} de plataforma 2D, de autoria própria, submetido como projeto da primeira unidade do componente curricular IMD0811 - MOTORES DE JOGOS DIGITAIS da UFRN ministrada pelo professor Isaac Franco Fernandes.
+
+
+Neste documento, delinearemos os seguintes pontos em cada seção abaixo, respectivamente:
+\begin{itemize}
+	\item Temática e aparência;
+	\item Mecânicas e funcionalidade;
+	\item Implementação.
+\end{itemize}
+
+\section{Temática e Aparência}
+
+O jogo é um \emph{side-scroller} de plataforma 2D, com elementos de terror. Inspirado em jogos retrô, foram escolhidos tons primariamente em preto-e-branco, e uma baixa resolução de pixels. Essa estética, junto com o efeito vinheta sobre a tela, é evocativa de um tom mais sombrio, que alinha com a temática do jogo.
+
+Os controles, também inspirados em jogos antigos, são deliberadamente simples, de forma a simular o uso de joysticks dos consoles antigos.
+
+Os níveis são projetados para estimular suspense ou medo, e os inimigos portam aparências ameaçadores e/ou perturbadoras. Todos os elementos visuais do jogo foram feitos pelos desenvolvedores.
+
+Outras fontes de inspiração para esse jogo incluem \emph{The Binding of Isaac}, jogo \emph{top-down} de temática similar, porém mais macabra, e outros \emph{side-scrollers} mais clássicos como \emph{Super Mario Bros.}
+
+\section{Mecânicas e Funcionalidades}
+
+O jogador controla um personagem que pode se movimentar para os lados (com A e D), pular (com W) e atirar (com espaço). O objetivo é chegar ao final de todos os níveis.
+
+Entre cada nível, o jogador poderá salvar o seu progresso. Os níveis também possuem \emph{checkpoints}, marcadores para os quais o personagem retorna após morrer. Esses marcadores são ativados a medida que o jogador avança no nível.
+
+Ao avançar, aparecerão inimigos que causam dano contínuo ao personagem. Após causar dano suficiente, o personagem morre. O jogador pode se livrar dos inimigos ao atirar neles com a arma. Mas deve-se ter cautela, pois cada inimigo morto torna mais difícil de eliminar o próximo. 
+
+Também existirão coletáveis na forma de cápsulas, que são contabilizados como pontos para o jogador. Tais pontos podem ser utilizados para potencializar os tiros, porém essa ação é mais custosa a cada uso subsequente. Quando o personagem volta da morte, a pontuação é resetada.
+
+
+\section{Implementação}
+
+O jogo está em processo de implementação no motor de jogos Unity 3D, utilizando o modo 2D. Apesar de ser um projeto sem grandes ambições, os componentes implementados foram projetados com reutilização em mente.
+Segue uma lista dos componentes, acompanhados por uma breve descrição de cada:
+\begin{itemize}
+	\item \texttt{Battler}, permite que uma entidade sofra dano;
+	\item \texttt{EnemyAI}, ativa comportamento de inimigo em uma entidade;
+	\item \texttt{Firepoint}, permite que uma entidade dispare um objeto com um componente \texttt{Shootable};
+	\item \texttt{PlayerAnimation}, controla as animações do personagem principal;
+	\item \texttt{PlayerJump}, controla a mecância de pulo do personagem principal;
+	\item \texttt{PlayerMovement}, controla o movimento do personagem principal;
+	\item \texttt{Shootable}, descreve um objeto que pode ser disparado por uma entidade com um \texttt{Firepoint}.
+\end{itemize}
+
+
+
+\end{document}
