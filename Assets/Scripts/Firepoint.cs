@@ -4,18 +4,23 @@ public class Firepoint : MonoBehaviour
 {
     public GameObject bullet;
     public int bulletMax;
-    public float timeReset;
+    public float reloadingTime;
 
     private int bulletCount = 0;
     private float timeCount = 0.0f;
 
-    // Update is called once per frame
+
+    public int getRemainingBullets()
+    {
+        return bulletMax - bulletCount;
+    }
+
     void Update()
     {
         if (bulletCount >= bulletMax)
         {
             timeCount += Time.deltaTime;
-            if (timeCount >= timeReset)
+            if (timeCount >= reloadingTime)
             {
                 timeCount = 0.0f;
                 bulletCount = 0;
