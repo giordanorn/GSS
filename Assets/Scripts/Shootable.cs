@@ -4,6 +4,7 @@ public class Shootable : MonoBehaviour
 {
     public float damage = 5.0f;
     public float speed = 5.0f;
+    public float energyCost = 5.0f;
     
     void FixedUpdate()
     {
