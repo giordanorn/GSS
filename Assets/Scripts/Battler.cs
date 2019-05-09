@@ -11,14 +11,6 @@ public class Battler : MonoBehaviour
         damageCooldown = GetComponent<DamageCooldown>();
     }
 
-    void Update()
-    {
-        if (healthReserve.IsEmpty())
-        {
-            Die();
-        }
-    }
-
     public void TakeDamage(float damage)
     {
         if (!IsImmune())
@@ -26,6 +18,10 @@ public class Battler : MonoBehaviour
             if (HasHealthReserve())
             {
                 healthReserve.Consume(damage);
+                if (healthReserve.IsEmpty())
+                {
+                    Die();
+                }
             }
             if (HasDamageCooldown())
             {
