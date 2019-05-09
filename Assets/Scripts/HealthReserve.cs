@@ -19,7 +19,6 @@ public class HealthReserve : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Health is " + CurrentHealth);
         if (CurrentHealth < maximumHealth)
         {
             Regenerate(regeneratePerSecond);
