@@ -278,18 +278,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &148363093 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -5474390321443764582, guid: 694c1c35e3f382c5993e9499c0cba6e9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1801806337}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b17f363efd834a9e876282bb70588a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &224749075
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c82f1717a2154488a05a6a76530888d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthReserve: {fileID: 148363093}
+  healthReserve: {fileID: 495994004}
 --- !u!114 &479036606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,6 +542,7 @@ GameObject:
   - component: {fileID: 3064378837821145806}
   - component: {fileID: 495994003}
   - component: {fileID: 495994004}
+  - component: {fileID: 495994005}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -741,8 +730,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b17f363efd834a9e876282bb70588a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximumHealth: 0
-  regeneratePerSecond: 0
+  maximumHealth: 10
+  regeneratePerSecond: 1
+--- !u!114 &495994005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495993995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b37e4275ec67a4aa32edf0fe3d9bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  immunityCooldown: 2
 --- !u!1 &606930945
 GameObject:
   m_ObjectHideFlags: 0
