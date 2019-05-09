@@ -2,36 +2,71 @@
 
 public class Battler : MonoBehaviour
 {
-    public float maxHealth;
-    public float damageCooldown;
-    private float health;
-    private float cooldown;
+    private HealthReserve healthReserve;
+    private DamageCooldown damageCooldown;
 
     void Start()
     {
-        health = maxHealth;
+        healthReserve = GetComponent<HealthReserve>();
+        damageCooldown = GetComponent<DamageCooldown>();
+    }
+
+    void Update()
+    {
+        if (healthReserve.IsEmpty())
+        {
+            Die();
+        }
     }
 
     public void TakeDamage(float damage)
     {
-        if (cooldown <= 0.0f)
+        if (!IsImmune())
         {
-            health -= damage;
-            cooldown = damageCooldown;
+            if (HasHealthReserve())
+            {
+                healthReserve.Consume(damage);
+            }
+            if (HasDamageCooldown())
+            {
+                damageCooldown.ResetCooldown();
+            }
+        }
+    }
+    
+    public void Kill()
+    {
+        Die();
+    }
+    
+    private bool IsImmune()
+    {
+        if (!HasHealthReserve())
+        {
+            return true;
+        }
+        else if (HasDamageCooldown())
+        {
+            return damageCooldown.InCooldown();
+        }
+        else
+        {
+            return false;
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private bool HasHealthReserve()
     {
-        if (cooldown > 0.0f)
-        {
-            cooldown -= Time.deltaTime;
-        }
+        return healthReserve != null;
+    }
 
-        if (health <= 0.0f)
-        {
-            gameObject.SetActive(false);
-        }
+    private bool HasDamageCooldown()
+    {
+        return damageCooldown != null;
+    }
+
+    private void Die()
+    {
+        gameObject.SetActive(false);
     }
 }

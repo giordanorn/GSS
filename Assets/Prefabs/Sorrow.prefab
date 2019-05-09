@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 930509600513227067}
   - component: {fileID: 930509600513227064}
-  - component: {fileID: 930509600513227065}
-  - component: {fileID: 2407223073208414604}
   - component: {fileID: 2318079069789111799}
   - component: {fileID: 4628808803764418343}
   - component: {fileID: 7181061050230913982}
+  - component: {fileID: 930509600513227065}
+  - component: {fileID: 2407223073208414604}
+  - component: {fileID: -5474390321443764582}
   m_Layer: 0
   m_Name: Sorrow
   m_TagString: Untagged
@@ -84,38 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &930509600513227065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 930509600513227046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 863736734e2d388e8ae03234f2d38080, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  followRadius: 4
-  speed: 2
-  damage: 5
-  idleSprite: {fileID: 21300000, guid: cad755e74e1e7e45d8cfa8fc93b76ad0, type: 3}
-  attackingSprite: {fileID: 21300002, guid: cad755e74e1e7e45d8cfa8fc93b76ad0, type: 3}
---- !u!114 &2407223073208414604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 930509600513227046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eff0498d2bc93a532aae7b64d41f360b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10
-  damageCooldown: 0.1
 --- !u!58 &2318079069789111799
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -249,3 +218,49 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &930509600513227065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930509600513227046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863736734e2d388e8ae03234f2d38080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  followRadius: 4
+  speed: 2
+  damage: 5
+  idleSprite: {fileID: 21300000, guid: cad755e74e1e7e45d8cfa8fc93b76ad0, type: 3}
+  attackingSprite: {fileID: 21300002, guid: cad755e74e1e7e45d8cfa8fc93b76ad0, type: 3}
+--- !u!114 &2407223073208414604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930509600513227046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff0498d2bc93a532aae7b64d41f360b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  damageCooldown: 0.1
+--- !u!114 &-5474390321443764582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930509600513227046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b17f363efd834a9e876282bb70588a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maximumHealth: 10
+  regeneratePerSecond: 0
