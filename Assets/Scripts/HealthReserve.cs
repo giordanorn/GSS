@@ -7,8 +7,8 @@ public class HealthReserve : MonoBehaviour
 {
     public float maximumHealth;
     public float regeneratePerSecond;
-    public float CurrentHealth { get; private set; }
-
+    
+    public float CurrentHealth {get; private set;}
     private Battler battler;
 
     void Start()
@@ -24,11 +24,7 @@ public class HealthReserve : MonoBehaviour
             Regenerate(regeneratePerSecond);
         }
     }
-
-    private void Regenerate(float regeneratePerSecond) {
-        CurrentHealth = Math.Min(CurrentHealth + (Time.deltaTime * regeneratePerSecond), maximumHealth);
-    }
-
+    
     public void Consume(float healthToConsume)
     {
         if (CanConsume(healthToConsume))
@@ -40,13 +36,17 @@ public class HealthReserve : MonoBehaviour
         }
     }
 
-    public bool CanConsume(float healthToConsume)
+    public bool IsEmpty()
+    {
+        return CurrentHealth == 0.0f;
+    }
+
+    private bool CanConsume(float healthToConsume)
     {
         return CurrentHealth >= healthToConsume;
     }
 
-    public bool IsEmpty()
-    {
-        return CurrentHealth == 0.0f;
+    private void Regenerate(float regeneratePerSecond) {
+        CurrentHealth = Math.Min(CurrentHealth + (Time.deltaTime * regeneratePerSecond), maximumHealth);
     }
 }
