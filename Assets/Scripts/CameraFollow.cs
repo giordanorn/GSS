@@ -6,9 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     public GameObject target;
 
-    private Vector2 velocity;
-
-    void Update()
+    void FixedUpdate()
     {
         transform.position = new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z);
     }
