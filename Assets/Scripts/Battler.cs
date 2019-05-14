@@ -4,11 +4,13 @@ public class Battler : MonoBehaviour
 {
     private HealthReserve healthReserve;
     private DamageCooldown damageCooldown;
+    private DeathText deathText;
 
     void Start()
     {
         healthReserve = GetComponent<HealthReserve>();
         damageCooldown = GetComponent<DamageCooldown>();
+        deathText = GetComponent<DeathText>();
     }
 
     public void TakeDamage(float damage)
@@ -64,5 +66,10 @@ public class Battler : MonoBehaviour
     private void Die()
     {
         gameObject.SetActive(false);
+        
+        if (deathText != null)
+        {
+            deathText.showText();
+        }
     }
 }
