@@ -39,7 +39,7 @@ public class EnemyAI : MonoBehaviour
 
             transform.Translate(speed * Time.deltaTime * Vector3.Normalize(delta));
 
-            if (audioSource != null && !audioSource.isPlaying)
+            if (audioSource != null && audioSource.enabled && !audioSource.isPlaying)
             {
                 audioSource.Play();
             }
